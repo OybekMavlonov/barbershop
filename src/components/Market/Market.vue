@@ -1,30 +1,35 @@
 <template>
-  <div class="market">
-    <v-container>
-      <div class="header">
-        <h1>Средства для ухода</h1>
-        <div class="path">
-          <span>ГЛАВНАЯ</span>
-          <img src="../../assets/svg/rec.svg" alt />
-          <span>МАГАЗИН</span>
-          <img src="../../assets/svg/rec.svg" alt />
-          <span>СРЕДСТВА ДЛЯ УХОДА</span>
+  <div>
+    <div class="market">
+      <v-container>
+        <div class="header">
+          <h1>Средства для ухода</h1>
+          <div class="path">
+            <span>ГЛАВНАЯ</span>
+            <img src="../../assets/svg/rec.svg" alt />
+            <span>МАГАЗИН</span>
+            <img src="../../assets/svg/rec.svg" alt />
+            <span>СРЕДСТВА ДЛЯ УХОДА</span>
+          </div>
         </div>
-      </div>
-      <v-row>
-        <Categories></Categories>
-        <Products></Products>
-      </v-row>
-    </v-container>
+        <v-row>
+          <Categories></Categories>
+          <Products></Products>
+        </v-row>
+      </v-container>
+    </div>
+    <Footer></Footer>
   </div>
 </template>
 
 <script>
+
 import Categories from "./Categories.vue";
 import Products from "./Products.vue";
+import Footer from "../Footer.vue";
 
 export default {
-  components: { Categories, Products }
+  components: { Categories, Products, Footer }
 };
 </script>
 

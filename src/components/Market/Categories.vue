@@ -2,9 +2,9 @@
   <v-col cols="3" md="3">
     <div class="manufacturers">
       <h2>ПРОИЗВОДИТЕЛИ:</h2>
-      <label class="manufacturers-item" v-for="(item) in products" :key="item.manufacturer">
-        {{item.manufacturer}}
-        <input type="checkbox" />
+      <label class="manufacturers-item" v-for="(item) in manufacturers" :key="item.id" @change="sendManufacturersId(manufacturerArray)">
+        {{item.title}}
+        <input type="checkbox" :value="item.id" v-model="manufacturerArray"/>
         <span class="checkmark"></span>
       </label>
     </div>
@@ -29,17 +29,24 @@
 
 <script>
 import { categories } from "../../db.js";
+import { manufacturers } from "../../db.js";
 import { products } from "../../db.js";
 import { mapActions } from "vuex";
 export default {
   data() {
     return {
       categories: categories,
-      products: products
+      products: products,
+      manufacturers: manufacturers,
+      manufacturerArray: []
     };
   },
   methods: {
-    ...mapActions(["getCategoryId"])
+    ...mapActions(["getCategoryId", "sendManufacturersId"]),
+    
+    // sendManufacturersId(mArray) {
+    //   this.$store.commit("sendManufacturersId", mArray)
+    // }
   }
 };
 </script>

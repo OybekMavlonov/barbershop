@@ -49,7 +49,7 @@ export default {
   data: () => ({
     drawer: null,
     items: [
-      { title: "ИНФОРМАЦИЯ", link: "/info" },
+      { title: "ИНФОРМАЦИЯ", link: "/" },
       { title: "НОВОСТИ", link: "/news" },
       { title: "ПРАЙС-ЛИСТ", link: "/price" },
       { title: "МАГАЗИН", link: "/market" },

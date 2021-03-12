@@ -6,7 +6,7 @@
       </div>
       <div class="products__info">
         <div class="products__info-name">{{product.name}}</div>
-        <div class="products__info-manufacturer">«{{product.manufacturer}}»</div>
+        <div class="products__info-manufacturer">«{{manufacturers[product.manufacturerId].title}}»</div>
         <div class="d-flex">
           <div class="products__info-price">{{product.price}} ₽</div>
           <button class="buy">КУПИТЬ</button>
@@ -17,10 +17,12 @@
 </template>
 
 <script>
+import { manufacturers } from "../../db.js";
 export default {
   data() {
     return {
-      show: true
+      show: true,
+      manufacturers: manufacturers
     };
   },
   props: {
