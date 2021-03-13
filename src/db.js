@@ -45,56 +45,49 @@ export const products = [
     id: 0,
     name: "Набор для путешествий",
     price: 2900,
-    // manufacturer: 'Baxter of California',
     productId: [1, 2],
     manufacturerId: 0
   },
   {
     id: 1,
-    name: "Hamsa (A.Navoiy)",
-    price: 1000,
-    // manufacturer: 'Mr Natty',
+    name: "Увлажняющий кондиционер",
+    price: 750,
     productId: [0, 1],
     manufacturerId: 1
   },
   {
     id: 2,
-    name: "Haqiqiy tibbiyot",
-    price: 5,
-    // manufacturer: 'Suavecito',
+    name: "Гель для волос",
+    price: 290,
     productId: [1, 2],
     manufacturerId: 2
   },
   {
     id: 3,
-    name: "Matematika (to'plam)",
-    price: 2000,
-    // manufacturer: 'Malin+Goetz',
+    name: "Гель для волос",
+    price: 300,
     productId: [2],
-    manufacturerId: 3
+    manufacturerId: 5
   },
   {
     id: 4,
-    name: "Tarixi Muhammadiy",
-    price: 10,
-    // manufacturer: 'Murray’s',
+    name: "Глина для укладки волос",
+    price: 500,
     productId: [0, 2],
-    manufacturerId: 4,
+    manufacturerId: 5
   },
   {
     id: 5,
-    name: "To'rt ulus tarixi",
-    price: 10,
-    // manufacturer: 'American Crew',
+    name: "Smth",
+    price: 100,
     productId: [0, 1],
     manufacturerId: 5,
   },
   {
     id: 6,
-    name: "Smth",
-    price: 10,
-    // manufacturer: 'American Crew',
+    name: "Набор для бритья",
+    price: 3900,
     productId: [1],
-    manufacturerId: 5
+    manufacturerId: 0
   },
 ];
