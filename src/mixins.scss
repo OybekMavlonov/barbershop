@@ -3,23 +3,240 @@
     @content;
   }
 }
+
 @mixin for-tablet-portrait-up {
   @media (max-width: 960px) {
     @content;
   }
 }
+
 @mixin for-tablet-landscape-up {
   @media (max-width: 1264px) {
     @content;
   }
 }
+
 @mixin for-desktop-up {
   @media (max-width: 1904px) {
     @content;
   }
 }
+
 @mixin for-big-desktop-up {
   @media (min-width: 1905px) {
     @content;
   }
+}
+
+
+.header {
+  margin-bottom: 55px;
+
+  @media (max-width: 780px) {
+    margin-bottom: 30px;
+  }
+
+  @include for-phone-only {
+    margin-bottom: 15px;
+  }
+
+  h1 {
+    font-family: "PTSansNarrowBold", sans-serif;
+    font-size: 30px;
+    text-transform: uppercase;
+    line-height: 1.4;
+    margin-bottom: 18px;
+
+    @media (max-width: 780px) {
+      font-size: 25px;
+      margin-bottom: 8px;
+    }
+
+    @include for-phone-only {
+      font-size: 18px;
+      margin-bottom: 3px;
+    }
+  }
+
+  .path {
+    span {
+      font-size: 14px;
+      font-family: "PTSansNarrowBold", sans-serif;
+      color: rgb(0, 0, 0);
+      line-height: 1.429;
+      text-transform: uppercase;
+
+      @include for-phone-only {
+        font-size: 12px;
+      }
+
+      &:last-child {
+        color: rgb(171, 169, 167);
+      }
+    }
+
+    img {
+      margin: 0 13px;
+
+      @include for-phone-only {
+        margin: 0 7px;
+      }
+    }
+  }
+}
+
+.buy {
+  font-family: "PTSansNarrowBold", sans-serif;
+  font-size: 14px;
+  width: 100%;
+  color: rgb(255, 255, 255);
+  line-height: 1.286;
+  background: #000;
+  padding: 15px 0px;
+  text-align: center;
+  line-height: 1.714;
+  cursor: pointer;
+
+  &:hover {
+    opacity: 0.78;
+  }
+
+  @include for-phone-only {
+    padding: 8px 0;
+  }
+}
+.general-btn {
+  font-family: "PTSansNarrowBold", sans-serif;
+  font-size: 14px;
+  background: #000;
+  color: #fff;
+  line-height: 1.714;
+  text-align: center;
+  cursor: pointer;
+
+  &:hover {
+    opacity: 0.8;
+  }
+}
+
+.set-includes {
+  h2 {
+    margin-bottom: 32px;
+    padding-right: 125px;
+    font-family: "PTSansNarrowBold", sans-serif;
+    font-size: 24px;
+    line-height: 1.25;
+
+    @include for-tablet-portrait-up {
+      text-align: center;
+      padding-right: 0;
+    }
+
+    @include for-phone-only {
+      font-size: 18px;
+      margin-bottom: 20px;
+    }
+  }
+
+  ul {
+    padding: 0;
+    margin-bottom: 68px;
+
+    @include for-tablet-portrait-up {
+      margin-bottom: 40px;
+      text-align: center;
+    }
+
+    @include for-phone-only {
+      margin-bottom: 30px;
+    }
+
+    li {
+      list-style-type: none;
+      font-size: 14px;
+      font-family: "PTSansNarrowBold", sans-serif;
+      color: rgb(0, 0, 0);
+      text-transform: uppercase;
+      line-height: 1.714;
+      margin-bottom: 24px;
+
+      @include for-phone-only {
+        font-size: 12px;
+        margin-bottom: 8px;
+      }
+
+      img {
+        margin-right: 12px;
+      }
+    }
+  }
+
+  .aboutUs {
+    font-size: 14px;
+    font-family: "PTSansNarrowBold", sans-serif;
+    color: rgb(0, 0, 0);
+    text-transform: uppercase;
+    padding-right: 90px;
+    line-height: 1.714;
+
+    @include for-tablet-portrait-up {
+      text-align: center;
+      padding-right: 0;
+    }
+
+    @include for-phone-only {
+      font-size: 12px;
+    }
+  }
+
+  table,
+  td,
+  th {
+    border: 2px solid black;
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 125px;
+
+    @include for-tablet-portrait-up {
+      margin-bottom: 40px;
+    }
+
+    @include for-phone-only {
+      margin-bottom: 20px;
+    }
+
+    tr {
+      td {
+        padding: 16px;
+        font-size: 14px;
+        font-family: "PTSansNarrowBold", sans-serif;
+
+        &:nth-child(2) {
+          text-align: center;
+        }
+
+        @include for-phone-only {
+          font-size: 12px;
+          padding: 12px;
+        }
+      }
+    }
+  }
+}
+.title {
+  font-family: "PTSansNarrowBold", sans-serif;
+  font-size: 30px;
+  color: rgb(0, 0, 0);
+  line-height: 1.4;
+  text-transform: uppercase;
+}
+.text {
+  font-family: "PTSansNarrowBold", sans-serif;
+  font-size: 14px;
+  color: rgb(0, 0, 0);
+  line-height: 1.714;
+  text-transform: uppercase;
 }

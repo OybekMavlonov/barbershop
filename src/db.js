@@ -52,7 +52,7 @@ export const products = [
   {
     id: 1,
     name: "Hamsa (A.Navoiy)",
-    price: 10,
+    price: 1000,
     // manufacturer: 'Mr Natty',
     productId: [0, 1],
     manufacturerId: 1
@@ -68,7 +68,7 @@ export const products = [
   {
     id: 3,
     name: "Matematika (to'plam)",
-    price: 20,
+    price: 2000,
     // manufacturer: 'Malin+Goetz',
     productId: [2],
     manufacturerId: 3

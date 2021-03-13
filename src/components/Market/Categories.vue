@@ -54,19 +54,6 @@ export default {
 <style lang="scss">
 @import "../../mixins.scss";
 
-.general-btn {
-  background: #000;
-  color: #fff;
-  font-size: 14px;
-  font-family: "PTSansNarrowBold", sans-serif;
-  line-height: 1.714;
-  text-align: left;
-
-  &:hover {
-    opacity: 0.8;
-  }
-}
-
 .manufacturers {
   h2 {
     font-family: "PTSansNarrowBold", sans-serif;
@@ -84,19 +71,17 @@ export default {
   }
 
   &-item {
+    @extend .text;
+    line-height: 1.286;
     display: block;
     position: relative;
     padding-left: 42px;
     margin-bottom: 20px;
     cursor: pointer;
-    font-size: 14px;
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
-    font-family: "PTSansNarrowBold", sans-serif;
-    text-transform: uppercase;
-    line-height: 1.286;
     @media (max-width: 780px) {
       margin-bottom: 15px;
       padding-left: 32px;
@@ -185,14 +170,12 @@ export default {
     padding-left: 42px;
     margin-bottom: 20px;
     cursor: pointer;
-    font-size: 14px;
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
-    font-family: "PTSansNarrowBold", sans-serif;
-    text-transform: uppercase;
     line-height: 1.286;
+    @extend .text;
     @media (max-width: 780px) {
       margin-bottom: 15px;
       padding-left: 32px;

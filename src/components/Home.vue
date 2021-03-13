@@ -143,7 +143,6 @@
           </v-row>
         </div>
       </v-container>
-
       <Footer></Footer>
     </div>
   </div>
@@ -232,31 +231,7 @@ export default {
   background-repeat: no-repeat;
   display: block;
 }
-.general-btn {
-  font-family: "PTSansNarrowBold", sans-serif;
-  font-size: 14px;
-  background: #000;
-  color: #fff;
-  line-height: 1.714;
-  text-align: center;
-  cursor: pointer;
 
-  &:hover {
-    opacity: 0.78;
-  }
-}
-.title {
-  font-family: "PTSansNarrowBold", sans-serif;
-  font-size: 30px;
-  color: rgb(0, 0, 0);
-  line-height: 1.4;
-}
-.text {
-  font-family: "PTSansNarrowBold", sans-serif;
-  font-size: 14px;
-  color: rgb(0, 0, 0);
-  line-height: 1.7;
-}
 .input {
   border: 2px solid #000;
   padding: 12px 11px 12px 16px;
@@ -288,22 +263,16 @@ export default {
     padding: 50px 0;
 
     &_title {
-      font-family: "PTSansNarrowBold", serif;
-      font-size: 30px;
       color: rgb(247, 244, 241);
-      font-weight: bold;
-      line-height: 1.4;
       padding: 10px 0;
       text-align: center;
+      @extend .title;
     }
     &_text {
-      font-family: "PTSansNarrowBold", serif;
-      font-size: 14px;
       color: rgb(247, 244, 241);
       padding: 20px 20px 10px;
-      font-weight: bold;
       text-align: center;
-      line-height: 1.714;
+      @extend .text;
     }
   }
 

@@ -1,9 +1,11 @@
 <template>
   <v-col cols="12" sm="6" md="4">
     <div class="products" @click="buy(product)">
-      <div class="products__img">
-        <v-img src="../../assets/baxter.png"></v-img>
-      </div>
+      <router-link :to="'/market/' + product.name">
+        <div class="products__img" @click="sendProduct(product)">
+          <v-img src="../../assets/baxter.png"></v-img>
+        </div>
+      </router-link>
       <div class="products__info">
         <div class="products__info-name">{{product.name}}</div>
         <div class="products__info-manufacturer">«{{manufacturers[product.manufacturerId].title}}»</div>
@@ -18,11 +20,13 @@
 
 <script>
 import { manufacturers } from "../../db.js";
+import { mapActions } from "vuex";
 export default {
   data() {
     return {
       show: true,
-      manufacturers: manufacturers
+      manufacturers: manufacturers,
+      productId: this.$route.params.id = this.product.id
     };
   },
   props: {
@@ -32,22 +36,13 @@ export default {
     }
   },
   methods: {
-    // addToCart(product) {
-    //   // EventBus.$emit("add-to-cart", product);
-    // }
+    ...mapActions(["sendProduct"]),
   }
 };
 </script>
 
 <style lang="scss">
 @import "../../mixins.scss";
-
-.name {
-  font-family: "PTSansNarrowBold", sans-serif;
-  font-size: 14px;
-  color: rgb(0, 0, 0);
-  line-height: 1.286;
-}
 .products {
   margin-bottom: 17px;
   background: #fff;
@@ -60,12 +55,11 @@ export default {
       text-align: center;
     }
     &-name {
-      @extend .name;
+      @extend .text;
     }
     &-manufacturer {
-      text-transform: uppercase;
       margin-bottom: 17px;
-      @extend .name;
+      @extend .text;
       @include for-phone-only {
         margin-bottom: 10px;
       }
@@ -81,22 +75,6 @@ export default {
 
       @include for-phone-only {
         padding: 8px 0;
-      }
-    }
-    .buy {
-      font-family: "PTSansNarrowBold", sans-serif;
-      font-size: 14px;
-      width: 100%;
-      color: rgb(255, 255, 255);
-      line-height: 1.286;
-      background: #000;
-      padding: 15px 0px;
-      text-align: center;
-      @include for-phone-only {
-        padding: 8px 0;
-      }
-      &:hover {
-        opacity: 0.8;
       }
     }
   }

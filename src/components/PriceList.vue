@@ -18,7 +18,7 @@
 
       <v-row class="mb-16">
         <v-col cols="12" md="6">
-          <div class="means">
+          <div class="set-includes">
             <h2>МЫ ИСПОЛЬЗУЕМ ТОЛЬКО ЛУЧШИЕ СРЕДСТВА:</h2>
             <ul>
               <li>
@@ -44,7 +44,7 @@
           </div>
         </v-col>
         <v-col cols="12" md="6">
-          <div class="means">
+          <div class="set-includes">
             <h2>ЦЕНЫ НА УСЛУГИ НАШИХ МАСТЕРОВ:</h2>
             <table>
               <tr>
@@ -90,40 +90,6 @@ export default {
   @include for-tablet-portrait-up {
     padding-top: 20px;
   }
-  .header {
-    margin-bottom: 55px;
-    @include for-tablet-portrait-up {
-      margin-bottom: 30px;
-    }
-    h1 {
-      font-family: "PTSansNarrowBold", sans-serif;
-      font-size: 30px;
-      line-height: 1.4;
-      margin-bottom: 18px;
-      @include for-phone-only {
-        font-size: 25px;
-        margin-bottom: 0px;
-      }
-    }
-    .path {
-      span {
-        font-size: 14px;
-        font-family: "PTSansNarrowBold", sans-serif;
-        color: rgb(0, 0, 0);
-        line-height: 1.429;
-        @include for-phone-only {
-          font-size: 12px;
-        }
-
-        &:last-child {
-          color: rgb(171, 169, 167);
-        }
-      }
-      img {
-        margin: 0 13px;
-      }
-    }
-  }
 
   &_title {
     align-items: center;
@@ -146,10 +112,9 @@ export default {
     }
     h1 {
       font-size: 48px;
-      font-family: "PTSansNarrowBold", sans-serif;
-      color: rgb(0, 0, 0);
       line-height: 1;
       text-align: center;
+      @extend .title;
       @include for-phone-only {
         font-size: 25px;
       }
@@ -158,102 +123,6 @@ export default {
   .row {
     @include for-tablet-portrait-up {
       margin-bottom: 20px !important;
-    }
-    .means {
-      h2 {
-        margin-bottom: 32px;
-        padding-right: 125px;
-        font-family: "PTSansNarrowBold", sans-serif;
-        font-size: 24px;
-        line-height: 1.25;
-        @include for-tablet-portrait-up {
-          text-align: center;
-          padding-right: 0;
-        }
-        @include for-phone-only {
-          font-size: 18px;
-          margin-bottom: 20px;
-        }
-      }
-
-      ul {
-        padding: 0;
-        margin-bottom: 68px;
-        @include for-tablet-portrait-up {
-          margin-bottom: 40px;
-          text-align: center;
-        }
-        @include for-phone-only {
-          margin-bottom: 30px;
-        }
-        li {
-          list-style-type: none;
-          font-size: 14px;
-          font-family: "PTSansNarrowBold", sans-serif;
-          color: rgb(0, 0, 0);
-          text-transform: uppercase;
-          line-height: 1.714;
-          margin-bottom: 24px;
-          @include for-phone-only {
-            font-size: 12px;
-            margin-bottom: 8px;
-          }
-          img {
-            margin-right: 12px;
-          }
-        }
-      }
-
-      .aboutUs {
-        font-size: 14px;
-        font-family: "PTSansNarrowBold", sans-serif;
-        color: rgb(0, 0, 0);
-        text-transform: uppercase;
-        padding-right: 90px;
-        line-height: 1.714;
-
-        @include for-tablet-portrait-up {
-          text-align: center;
-          padding-right: 0;
-        }
-        @include for-phone-only {
-          font-size: 12px;
-        }
-      }
-
-      table,
-      td,
-      th {
-        border: 2px solid black;
-      }
-
-      table {
-        width: 100%;
-        border-collapse: collapse;
-        margin-bottom: 125px;
-        @include for-tablet-portrait-up {
-          margin-bottom: 40px;
-        }
-        @include for-phone-only {
-          margin-bottom: 20px;
-        }
-        tr {
-          td {
-            padding: 16px;
-            font-size: 14px;
-            font-family: "PTSansNarrowBold", sans-serif;
-
-            &:nth-child(2) {
-              text-align: center;
-            }
-
-            @include for-phone-only {
-              font-size: 12px;
-              padding: 12px;
-            }
-          }
-        }
-      }
     }
   }
 }

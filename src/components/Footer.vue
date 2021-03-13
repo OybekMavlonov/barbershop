@@ -53,12 +53,6 @@ export default {
 <style lang="scss">
 @import "../mixins.scss";
 
-.contact-style {
-  font-family: "PTSansNarrowBold", sans-serif;
-  font-size: 14px;
-  color: rgb(255, 255, 255);
-  line-height: 1.714;
-}
 .v-footer {
   padding-bottom: 36px !important;
   padding-top: 48px !important;
@@ -67,7 +61,8 @@ export default {
     padding-top: 22px !important;
   }
   .footer-contact {
-    @extend .contact-style;
+    @extend .text;
+    color: #fff;
     @include for-phone-only {
       font-size: 12px;
       text-align: center;
@@ -80,7 +75,8 @@ export default {
   .social-networks {
     flex-direction: column;
     display: flex;
-    @extend .contact-style;
+    @extend .text;
+    color: #fff;
     @include for-phone-only {
       font-size: 12px;
     }
@@ -120,8 +116,8 @@ export default {
     flex-direction: column;
     display: flex;
     text-align: center;
-
-    @extend .contact-style;
+    @extend .text;
+    color: #fff;
     @include for-phone-only {
       font-size: 12px;
     }
@@ -129,7 +125,8 @@ export default {
       padding: 12px 28px;
       margin-top: 20px;
 
-      @extend .contact-style;
+      @extend .text;
+      color: #fff;
       @include for-phone-only {
         font-size: 12px;
         padding: 8px 16px;
