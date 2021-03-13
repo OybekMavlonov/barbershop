@@ -1,9 +1,10 @@
 <template>
   <v-col cols="12" sm="6" md="4">
-    <div class="products" @click="buy(product)">
+    <div class="products">
       <router-link :to="'/market/' + product.name">
         <div class="products__img" @click="sendProduct(product)">
           <v-img src="../../assets/baxter.png"></v-img>
+          <!-- <v-img :src="product.main_img"></v-img> -->
         </div>
       </router-link>
       <div class="products__info">
@@ -26,7 +27,7 @@ export default {
     return {
       show: true,
       manufacturers: manufacturers,
-      productId: this.$route.params.id = this.product.id
+      productId: (this.$route.params.id = this.product.id)
     };
   },
   props: {
@@ -36,7 +37,7 @@ export default {
     }
   },
   methods: {
-    ...mapActions(["sendProduct"]),
+    ...mapActions(["sendProduct"])
   }
 };
 </script>
