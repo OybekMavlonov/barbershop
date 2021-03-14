@@ -16,16 +16,13 @@
         </div>
         <v-row>
           <v-col cols="12" md="6">
-            <v-img src="../../assets/baxter1.png" style="box-shadow: rgb(0 0 0 / 24%) 0px 3px 8px;"></v-img>
+            <v-img :src="productInfo.product_img" style="box-shadow: rgb(0 0 0 / 24%) 0px 3px 8px;"></v-img>
             <div class="other-images d-flex justify-space-between">
               <v-img
                 v-for="(img, index) in productInfo.other_images"
                 :key="index"
                 :src="productInfo.other_images[index]"
               ></v-img>
-              <!-- <v-img src="../../assets/baxter2.png"></v-img>
-              <v-img src="../../assets/baxter3.png"></v-img>
-              <v-img src="../../assets/baxter4.png"></v-img> -->
             </div>
           </v-col>
           <v-col cols="12" md="6">

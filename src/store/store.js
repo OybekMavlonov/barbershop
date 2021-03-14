@@ -11,7 +11,8 @@ export const store = new Vuex.Store({
     products: products,
     categoryId: NaN,
     manufacturersId: [],
-    productDetails: {}
+    productDetails: {},
+    selectedProducts: []
   },
   getters: {
     categoryId: (state) => {
@@ -33,6 +34,9 @@ export const store = new Vuex.Store({
     },
     sendProduct(state,payload) {
       state.productDetails = payload
+    },
+    selected(state,payload) {
+      state.selectedProducts = payload
     }
   },
   actions: {
@@ -44,6 +48,9 @@ export const store = new Vuex.Store({
     },
     sendProduct: (context, payload) => {
       context.commit("sendProduct", payload);
+    },
+    selected: (context, payload) => {
+      context.commit("selected", payload);
     },
   },
 });

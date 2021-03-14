@@ -2,28 +2,34 @@
   <v-col cols="3" md="3">
     <div class="manufacturers">
       <h2>ПРОИЗВОДИТЕЛИ:</h2>
-      <label class="manufacturers-item" v-for="(item) in manufacturers" :key="item.id" @change="sendManufacturersId(manufacturerArray)">
-        {{item.title}}
-        <input type="checkbox" :value="item.id" v-model="manufacturerArray"/>
+      <label
+        class="manufacturers-item"
+        v-for="item in manufacturers"
+        :key="item.id"
+        @change="sendManufacturersId(manufacturerArray)"
+      >
+        {{ item.title }}
+        <input type="checkbox" :value="item.id" v-model="manufacturerArray" />
         <span class="checkmark"></span>
       </label>
     </div>
 
     <div class="categories">
       <h2>ГРУППЫ ТОВАРОВ:</h2>
-      <label
-        class="categories-item"
-        v-for="(item) in categories"
-        :key="item.id"
-        @click="getCategoryId(item.id)"
-      >
-        {{item.title}}
-        <input type="radio" name="radio" />
+      <label class="categories-item" v-for="item in categories" :key="item.id">
+        {{ item.title }}
+        <input
+          type="radio"
+          name="radio"
+          :value="item.id"
+          v-model="categoryId"
+          @click="getCategoryId(item.id)"
+        />
         <span class="checkmark"></span>
       </label>
     </div>
 
-    <button class="show">Показать</button>
+    <button class="show" @click="selected()">Показать</button>
   </v-col>
 </template>
 
@@ -38,16 +44,32 @@ export default {
       categories: categories,
       products: products,
       manufacturers: manufacturers,
-      manufacturerArray: []
+      manufacturerArray: [],
+      categoryId: NaN,
     };
+  },
+  computed: {
+    isIncluded() {
+      return this.products.filter((product) => {
+        return product.productId.includes(this.categoryId);
+      });
+    },
+    showManufacturer() {
+      return this.isIncluded.filter((item) => {
+        return this.manufacturerArray.includes(item.manufacturerId);
+      });
+    },
   },
   methods: {
     ...mapActions(["getCategoryId", "sendManufacturersId"]),
-    
+
     // sendManufacturersId(mArray) {
     //   this.$store.commit("sendManufacturersId", mArray)
     // }
-  }
+    selected() {
+      this.$store.commit("selected", this.showManufacturer);
+    },
+  },
 };
 </script>
 

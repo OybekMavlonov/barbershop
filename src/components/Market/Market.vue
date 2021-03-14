@@ -36,7 +36,7 @@ export default {
 @import "../../mixins.scss";
 .market {
   background: #f2efec;
-  padding: 48px 0 38px;
+  padding: 38px 0;
 
   @media (max-width: 780px) {
     padding: 28px 0 18px;

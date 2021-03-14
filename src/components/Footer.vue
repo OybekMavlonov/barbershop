@@ -12,7 +12,7 @@
         </v-col>
         <v-col cols="12" md="7" class="d-flex">
           <div class="social-networks">
-            <div class="pr-4 pl-4">ДАВАЙТЕ ДРУЖИТЬ!</div>
+            <div class="pr-4 pl-4 text-center">ДАВАЙТЕ ДРУЖИТЬ!</div>
             <div class="social-icons d-flex justify-space-between">
               <a href="#" class="vk">
                 <img src="../assets/svg/vk.svg" />

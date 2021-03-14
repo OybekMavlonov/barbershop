@@ -3,15 +3,17 @@
     <div class="products">
       <router-link :to="'/market/' + product.name">
         <div class="products__img" @click="sendProduct(product)">
-          <v-img src="../../assets/baxter.png"></v-img>
-          <!-- <v-img :src="product.main_img"></v-img> -->
+          <!-- <v-img src="../../assets/baxter.png"></v-img> -->
+          <v-img :src="product.card_img"></v-img>
         </div>
       </router-link>
       <div class="products__info">
-        <div class="products__info-name">{{product.name}}</div>
-        <div class="products__info-manufacturer">«{{manufacturers[product.manufacturerId].title}}»</div>
+        <div class="products__info-name">{{ product.name }}</div>
+        <div class="products__info-manufacturer">
+          «{{ manufacturers[product.manufacturerId].title }}»
+        </div>
         <div class="d-flex">
-          <div class="products__info-price">{{product.price}} ₽</div>
+          <div class="products__info-price">{{ product.price }} ₽</div>
           <button class="buy">КУПИТЬ</button>
         </div>
       </div>
@@ -27,18 +29,18 @@ export default {
     return {
       show: true,
       manufacturers: manufacturers,
-      productId: (this.$route.params.id = this.product.id)
+      productId: (this.$route.params.id = this.product.id),
     };
   },
   props: {
     product: {
       type: Object,
-      required: true
-    }
+      required: true,
+    },
   },
   methods: {
-    ...mapActions(["sendProduct"])
-  }
+    ...mapActions(["sendProduct"]),
+  },
 };
 </script>
 
