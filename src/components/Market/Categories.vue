@@ -177,13 +177,6 @@ export default {
 }
 
 .categories {
-  // margin-bottom: 46px;
-  @media (max-width: 780px) {
-    // margin-bottom: 30px;
-  }
-  @include for-phone-only {
-    // margin-bottom: 20px;
-  }
   h2 {
     font-family: "PTSansNarrowBold", sans-serif;
     font-size: 24px;
@@ -224,11 +217,6 @@ export default {
       font-size: 12px;
       margin-bottom: 10px;
       padding-left: 20px;
-      //   overflow: hidden;
-      // text-overflow: ellipsis;
-      // display: -webkit-box;
-      // -webkit-line-clamp: 1;
-      // -webkit-box-orient: vertical;
     }
 
     input {
@@ -288,9 +276,6 @@ export default {
     padding: 7px 20px;
     font-size: 12px;
     margin-top: 30px;
-  }
-  @include for-phone-only {
-    // margin-top: 18px;
   }
 }
 </style>

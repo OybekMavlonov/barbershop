@@ -45,18 +45,6 @@
                     <img src="../../assets/svg/rec.svg" alt />
                     {{amenity}}
                   </li>
-                  <!-- <li>
-                    <img src="../../assets/svg/rec.svg" alt />Mr Natty
-                  </li>
-                  <li>
-                    <img src="../../assets/svg/rec.svg" alt />Suavecito
-                  </li>
-                  <li>
-                    <img src="../../assets/svg/rec.svg" alt />Malin+Goetz
-                  </li>
-                  <li>
-                    <img src="../../assets/svg/rec.svg" alt />Malin+Goetz
-                  </li> -->
                 </ul>
               </div>
             </div>

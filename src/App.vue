@@ -139,14 +139,18 @@ export default {
 }
 .bg-modal {
   width: 100%;
+  height: 100%;
   position: absolute;
-  top: 120px;
+  top: 0px;
   display: none;
   justify-content: center;
+  background-color: rgba(0, 0, 0, 0.8);
 }
 
 .modal-contents {
   width: 460px;
+  max-height: 430px;
+  margin-top: 120px;
   background-color: #f7f4f1;
   padding: 55px 80px;
   position: relative;
