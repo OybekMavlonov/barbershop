@@ -1,5 +1,5 @@
 <template>
-  <v-col cols="9" md="9">
+  <v-col cols="12" sm="9" md="9">
     <v-row>
       <ProductsItem
         v-for="product in pageList"

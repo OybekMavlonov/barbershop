@@ -1,35 +1,40 @@
 <template>
-  <v-col cols="3" md="3">
-    <div class="manufacturers">
-      <h2>ПРОИЗВОДИТЕЛИ:</h2>
-      <label
-        class="manufacturers-item"
-        v-for="item in manufacturers"
-        :key="item.id"
-        @change="sendManufacturersId(manufacturerArray)"
-      >
-        {{ item.title }}
-        <input type="checkbox" :value="item.id" v-model="manufacturerArray" />
-        <span class="checkmark"></span>
-      </label>
-    </div>
+  <v-col cols="12" sm="3" md="3">
+    <div class="categories-wrapper">
+      <div class="manufacturers">
+        <h2>ПРОИЗВОДИТЕЛИ:</h2>
+        <label
+          class="manufacturers-item"
+          v-for="item in manufacturers"
+          :key="item.id"
+          @change="sendManufacturersId(manufacturerArray)"
+        >
+          {{ item.title }}
+          <input type="checkbox" :value="item.id" v-model="manufacturerArray" />
+          <span class="checkmark"></span>
+        </label>
+      </div>
 
-    <div class="categories">
-      <h2>ГРУППЫ ТОВАРОВ:</h2>
-      <label class="categories-item" v-for="item in categories" :key="item.id">
-        {{ item.title }}
-        <input
-          type="radio"
-          name="radio"
-          :value="item.id"
-          v-model="categoryId"
-          @click="getCategoryId(item.id)"
-        />
-        <span class="checkmark"></span>
-      </label>
+      <div class="categories">
+        <h2>ГРУППЫ ТОВАРОВ:</h2>
+        <label
+          class="categories-item"
+          v-for="item in categories"
+          :key="item.id"
+        >
+          {{ item.title }}
+          <input
+            type="radio"
+            name="radio"
+            :value="item.id"
+            v-model="categoryId"
+            @click="getCategoryId(item.id)"
+          />
+          <span class="checkmark"></span>
+        </label>
+        <button class="show" @click="selected()">Показать</button>
+      </div>
     </div>
-
-    <button class="show" @click="selected()">Показать</button>
   </v-col>
 </template>
 
@@ -76,6 +81,12 @@ export default {
 <style lang="scss">
 @import "../../mixins.scss";
 
+.categories-wrapper {
+  @include for-phone-only {
+    display: flex;
+    justify-content: space-between;
+  }
+}
 .manufacturers {
   h2 {
     font-family: "PTSansNarrowBold", sans-serif;
@@ -106,12 +117,18 @@ export default {
     user-select: none;
     @media (max-width: 780px) {
       margin-bottom: 15px;
+      font-size: 12px;
       padding-left: 32px;
     }
     @include for-phone-only {
       font-size: 12px;
       margin-bottom: 10px;
       padding-left: 20px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      display: -webkit-box;
+      -webkit-line-clamp: 1;
+      -webkit-box-orient: vertical;
     }
 
     input {
@@ -160,12 +177,12 @@ export default {
 }
 
 .categories {
-  margin-bottom: 46px;
+  // margin-bottom: 46px;
   @media (max-width: 780px) {
-    margin-bottom: 30px;
+    // margin-bottom: 30px;
   }
   @include for-phone-only {
-    margin-bottom: 20px;
+    // margin-bottom: 20px;
   }
   h2 {
     font-family: "PTSansNarrowBold", sans-serif;
@@ -180,9 +197,9 @@ export default {
       font-size: 20px;
     }
     @include for-phone-only {
-      font-size: 18px;
+      font-size: 15px;
       margin-bottom: 15px;
-      margin-top: 20px;
+      margin-top: 0px;
     }
   }
 
@@ -200,12 +217,18 @@ export default {
     @extend .text;
     @media (max-width: 780px) {
       margin-bottom: 15px;
+      font-size: 12px;
       padding-left: 32px;
     }
     @include for-phone-only {
       font-size: 12px;
       margin-bottom: 10px;
       padding-left: 20px;
+      //   overflow: hidden;
+      // text-overflow: ellipsis;
+      // display: -webkit-box;
+      // -webkit-line-clamp: 1;
+      // -webkit-box-orient: vertical;
     }
 
     input {
@@ -257,12 +280,17 @@ export default {
 }
 
 .show {
+  margin-top: 48px;
   padding: 10px 28px;
   text-transform: uppercase;
   @extend .general-btn;
   @media (max-width: 780px) {
     padding: 7px 20px;
     font-size: 12px;
+    margin-top: 30px;
+  }
+  @include for-phone-only {
+    // margin-top: 18px;
   }
 }
 </style>

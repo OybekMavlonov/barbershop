@@ -100,7 +100,10 @@
   &:hover {
     opacity: 0.78;
   }
-
+  @media (max-width: 780px) {
+    font-size: 12px;
+    padding: 7px 0;
+  }
   @include for-phone-only {
     padding: 8px 0;
   }

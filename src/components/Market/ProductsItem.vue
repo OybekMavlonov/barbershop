@@ -69,6 +69,10 @@ export default {
     &-manufacturer {
       margin-bottom: 17px;
       @extend .text;
+      @media (max-width: 780px) {
+    font-size: 12px;
+    margin-bottom: 10px;
+  }
       @include for-phone-only {
         margin-bottom: 10px;
       }
