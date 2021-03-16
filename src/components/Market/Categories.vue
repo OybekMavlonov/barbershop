@@ -257,11 +257,12 @@ export default {
 }
 
 .show {
-  padding: 15px 27px;
+  padding: 10px 28px;
   text-transform: uppercase;
   @extend .general-btn;
   @media (max-width: 780px) {
-    padding: 12px 20px;
+    padding: 7px 20px;
+    font-size: 12px;
   }
 }
 </style>

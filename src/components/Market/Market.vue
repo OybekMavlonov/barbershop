@@ -37,7 +37,9 @@ export default {
 .market {
   background: #f2efec;
   padding: 38px 0;
-
+ @include for-tablet-portrait-up {
+      padding: 20px 0px;
+    }
   @media (max-width: 780px) {
     padding: 28px 0 18px;
   }

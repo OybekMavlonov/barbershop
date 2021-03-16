@@ -2,15 +2,15 @@
   <v-footer style="background: rgb(32, 32, 32);">
     <v-container>
       <v-row>
-        <v-col cols="12" md="5">
+        <v-col cols="12" sm="5" md="5">
           <div class="footer-contact">
-            <div>{{contact.name}}</div>
-            <div>{{contact.address}}</div>
+            <div>{{ contact.name }}</div>
+            <div>{{ contact.address }}</div>
             <a href="#">КАК НАС НАЙТИ?</a>
-            <div>{{contact.phone}}</div>
+            <div>{{ contact.phone }}</div>
           </div>
         </v-col>
-        <v-col cols="12" md="7" class="d-flex">
+        <v-col cols="12" sm="7" md="7" class="d-flex align-center">
           <div class="social-networks">
             <div class="pr-4 pl-4 text-center">ДАВАЙТЕ ДРУЖИТЬ!</div>
             <div class="social-icons d-flex justify-space-between">
@@ -43,10 +43,10 @@ export default {
       contact: {
         name: "БАРБЕРШОП «БОРОДИНСКИЙ",
         address: "АДРЕС: Г. САНКТ-ПЕТЕРБУРГ, Б. КОНЮШЕННАЯ, Д. 19/8",
-        phone: "ТЕЛЕФОН: +7 (495) 666-02-66"
-      }
+        phone: "ТЕЛЕФОН: +7 (495) 666-02-66",
+      },
     };
-  }
+  },
 };
 </script>
 
@@ -56,13 +56,20 @@ export default {
 .v-footer {
   padding-bottom: 36px !important;
   padding-top: 48px !important;
-  @include for-phone-only {
+  @media (max-width: 780px) {
     padding-bottom: 20px !important;
+    padding-top: 28px !important;
+  }
+  @include for-phone-only {
+    padding-bottom: 18px !important;
     padding-top: 22px !important;
   }
   .footer-contact {
     @extend .text;
     color: #fff;
+    @media (max-width: 780px) {
+      font-size: 12px;
+    }
     @include for-phone-only {
       font-size: 12px;
       text-align: center;
@@ -87,6 +94,9 @@ export default {
         height: 42px;
         width: 42px;
         background: #000;
+        @media (max-width: 780px) {
+          margin: 0;
+        }
         @include for-phone-only {
           height: 36px;
           width: 36px;

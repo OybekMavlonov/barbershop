@@ -16,8 +16,8 @@
         <div class="line"></div>
       </div>
 
-      <v-row class="mb-16">
-        <v-col cols="12" md="6">
+      <v-row>
+        <v-col cols="12" sm="6" md="6">
           <div class="set-includes">
             <h2>МЫ ИСПОЛЬЗУЕМ ТОЛЬКО ЛУЧШИЕ СРЕДСТВА:</h2>
             <ul>
@@ -34,16 +34,9 @@
                 <img src="../assets/svg/rec.svg" alt />Malin+Goetz
               </li>
             </ul>
-
-            <h2>НЕСКОЛЬКО СЛОВ О НАС:</h2>
-            <div class="aboutUs">
-              Наша парикмахерская занимается исключительно мужскими стрижками.
-              Стрижка каждого клиента для нас - это уникальная и продуманная до
-              мелочей работа. Мы не работаем на количество, мы делаем качество.
-            </div>
           </div>
         </v-col>
-        <v-col cols="12" md="6">
+        <v-col cols="12" sm="6" md="6">
           <div class="set-includes">
             <h2>ЦЕНЫ НА УСЛУГИ НАШИХ МАСТЕРОВ:</h2>
             <table>
@@ -60,7 +53,22 @@
                 <td>350 ₽</td>
               </tr>
             </table>
-
+          </div>
+        </v-col>
+        <v-col cols="12">
+            <h2>НЕСКОЛЬКО СЛОВ О НАС:</h2>
+        </v-col>
+        <v-col cols="12" sm="6" md="6">
+          <div class="set-includes">
+            <div class="aboutUs">
+              Наша парикмахерская занимается исключительно мужскими стрижками.
+              Стрижка каждого клиента для нас - это уникальная и продуманная до
+              мелочей работа. Мы не работаем на количество, мы делаем качество.
+            </div>
+          </div>
+        </v-col>
+        <v-col cols="12" sm="6" md="6">
+          <div class="set-includes">
             <div class="aboutUs">
               Наша парикмахерская занимается исключительно мужскими стрижками.
               Стрижка каждого клиента для нас - это уникальная и продуманная до
@@ -69,6 +77,7 @@
           </div>
         </v-col>
       </v-row>
+      
     </v-container>
     <Footer></Footer>
   </div>
@@ -109,18 +118,23 @@ export default {
       @include for-phone-only {
         width: 130px;
       }
+      
     }
     h1 {
       font-size: 48px;
       line-height: 1;
       text-align: center;
       @extend .title;
+      @include for-tablet-portrait-up {
+      font-size: 36px;
+    }
       @include for-phone-only {
         font-size: 25px;
       }
     }
   }
   .row {
+    margin-bottom: 64px;
     @include for-tablet-portrait-up {
       margin-bottom: 20px !important;
     }

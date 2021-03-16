@@ -3,7 +3,6 @@
     <div class="products">
       <router-link :to="'/market/' + product.name">
         <div class="products__img" @click="sendProduct(product)">
-          <!-- <v-img src="../../assets/baxter.png"></v-img> -->
           <v-img :src="product.card_img"></v-img>
         </div>
       </router-link>
@@ -59,6 +58,13 @@ export default {
     }
     &-name {
       @extend .text;
+      @include for-tablet-landscape-up {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        display: -webkit-box;
+        -webkit-line-clamp: 1;
+        -webkit-box-orient: vertical;
+      }
     }
     &-manufacturer {
       margin-bottom: 17px;
@@ -70,7 +76,7 @@ export default {
     &-price {
       font-family: "PTSansNarrowBold", sans-serif;
       display: inline;
-      padding: 15px 0px;
+      padding: 10px 0px;
       width: 100%;
       text-align: center;
       background: #e5e5e5;
