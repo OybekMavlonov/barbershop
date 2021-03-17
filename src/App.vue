@@ -166,7 +166,6 @@ export default {
     width: 70%;
     max-height: 310px;
   }
-  
 
   h1 {
     margin-bottom: 26px;
@@ -176,9 +175,9 @@ export default {
       margin-bottom: 10px;
     }
     @media (max-width: 300px) {
-    font-size: 18px;
-    margin-bottom: 5px;
-  }
+      font-size: 18px;
+      margin-bottom: 5px;
+    }
   }
 
   .v-form {
@@ -202,6 +201,8 @@ export default {
     .form-item {
       position: relative;
       .input {
+        padding: 12px 28px 12px 16px;
+
         color: #000;
         width: 100%;
         @media (max-width: 780px) {

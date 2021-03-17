@@ -18,13 +18,7 @@
       <div class="advantages">
         <v-container>
           <v-row>
-            <v-col
-              v-for="n in advantages"
-              :key="n.title"
-              cols="12"
-              sm="4"
-              md="4"
-            >
+            <v-col v-for="n in advantages" :key="n.title" cols="12" sm="4" md="4">
               <h1 class="advantages_title">{{ n.title }}</h1>
               <v-layout justify-center>
                 <v-img
@@ -58,13 +52,7 @@
               <div class="gallery">
                 <h1>ФОТОГАЛЕРЕЯ</h1>
                 <VueSlickCarousel :arrows="true">
-                  <img
-                    class="gallery_img"
-                    v-for="(item, i) in items"
-                    :key="i"
-                    :src="item.src"
-                    alt=""
-                  />
+                  <img class="gallery_img" v-for="(item, i) in items" :key="i" :src="item.src" alt />
                 </VueSlickCarousel>
               </div>
             </v-col>
@@ -126,38 +114,26 @@
                             v-on="on"
                           />
                         </template>
-                        <v-date-picker
-                          v-model="date"
-                          no-title
-                          @input="menu1 = false"
-                        ></v-date-picker>
+                        <v-date-picker v-model="date" no-title @input="menu1 = false"></v-date-picker>
                       </v-menu>
                     </div>
 
                     <div class="form-item">
                       <p class="form-text">ВРЕМЯ</p>
-                      <input class="input ml-5" placeholder="10:00" name />
+                      <input class="input ml-5" placeholder="10:00" name type="time" />
+                      <!-- <the-mask mask="##:##" class="input ml-5" placeholder="10:00" name /> -->
                     </div>
                   </div>
 
                   <div class="d-flex justify-space-between">
                     <div class="form-item">
                       <p class="form-text">ВАШЕ ИМЯ</p>
-                      <input
-                        class="input"
-                        placeholder="Name"
-                        type="text"
-                        name
-                      />
+                      <input class="input" placeholder="Name" type="text" name />
                     </div>
 
                     <div class="form-item">
                       <p class="form-text">ТЕЛЕФОН</p>
-                      <input
-                        class="input ml-5"
-                        placeholder="+7 123 456-78-90"
-                        name
-                      />
+                      <input class="input ml-5" placeholder="+99897 456-78-90" name type="tel" />
                     </div>
                   </div>
                 </v-form>
@@ -179,40 +155,40 @@ import "vue-slick-carousel/dist/vue-slick-carousel.css";
 // optional style for arrows & dots
 import "vue-slick-carousel/dist/vue-slick-carousel-theme.css";
 export default {
-  data: (vm) => ({
+  data: vm => ({
     advantages: [
       {
         title: "БЫСТРО",
         text:
-          "МЫ ДЕЛАЕМ СВОЮ РАБОТУ БЫСТРО! ДВА ЧАСА ПРОЛЕТЯТ НЕЗАМЕТНО И ВЫ — СЧАСТЛИВЫЙ ОБЛАДАТЕЛЬ СТИЛЬНОЙ СТРИЖКИ-МИНУТКИ!",
+          "МЫ ДЕЛАЕМ СВОЮ РАБОТУ БЫСТРО! ДВА ЧАСА ПРОЛЕТЯТ НЕЗАМЕТНО И ВЫ — СЧАСТЛИВЫЙ ОБЛАДАТЕЛЬ СТИЛЬНОЙ СТРИЖКИ-МИНУТКИ!"
       },
       {
         title: "КРУТО",
         text:
-          "ЗАБУДЬТЕ, КАК ВЫ СТРИГЛИСЬ РАНЬШЕ. МЫ СДЕЛАЕМ ИЗ ВАС ЗВЕЗДУ ФУТБОЛА ИЛИ КИНО! ВО ВСЯКОМ СЛУЧАЕ ВНЕШНЕ.",
+          "ЗАБУДЬТЕ, КАК ВЫ СТРИГЛИСЬ РАНЬШЕ. МЫ СДЕЛАЕМ ИЗ ВАС ЗВЕЗДУ ФУТБОЛА ИЛИ КИНО! ВО ВСЯКОМ СЛУЧАЕ ВНЕШНЕ."
       },
       {
         title: "ДОРОГО",
         text:
-          "НАШИ МАСТЕРА — ПРОФЕССИОНАЛЫ СВОЕГО ДЕЛА И НЕ МОГУТ СТОИТЬ ДЕШЕВО. К ТОМУ ЖЕ, РАЗВЕ ЦЕНА НЕ ДАЕТ ОПРЕДЕЛЕНЫЙ СТАТУС?",
-      },
+          "НАШИ МАСТЕРА — ПРОФЕССИОНАЛЫ СВОЕГО ДЕЛА И НЕ МОГУТ СТОИТЬ ДЕШЕВО. К ТОМУ ЖЕ, РАЗВЕ ЦЕНА НЕ ДАЕТ ОПРЕДЕЛЕНЫЙ СТАТУС?"
+      }
     ],
     news: [
       {
         text:
           "НАМ НАКОНЕЦ ЗАВЕЗЛИ ЯГЕРМАЙСТЕР! ТЕПЕРЬ ВЫ МОЖЕТЕ ПРОПУСТИТЬ СТАКАНЧИК ВО ВРЕМЯ СТРИЖКИ",
-        date: "11 января",
+        date: "11 января"
       },
       {
         text:
           "В НАШЕЙ КОМАНДЕ ПОПОЛНЕНИЕ, БОРИС «БРИТВА» СТРИГУНЕЦ, ОБЛАДAТЕЛЬ МНОЖЕСТВА ТИТУЛОВ И НАГРАД ПОПОЛНИЛ НАШИ СТРОЙНЫЕ РЯДЫ",
-        date: "18 января",
-      },
+        date: "18 января"
+      }
     ],
     contact: {
       name: "БАРБЕРШОП «БОРОДИНСКИЙ",
       address: "АДРЕС: Г. САНКТ-ПЕТЕРБУРГ, Б. КОНЮШЕННАЯ, Д. 19/8",
-      phone: "ТЕЛЕФОН: +7 (495) 666-02-66",
+      phone: "ТЕЛЕФОН: +7 (495) 666-02-66"
     },
     date: new Date().toISOString().substr(0, 10),
     dateFormatted: vm.formatDate(new Date().toISOString().substr(0, 10)),
@@ -220,33 +196,33 @@ export default {
     menu2: false,
     items: [
       {
-        src: require("../assets/gallery.png"),
+        src: require("../assets/gallery.png")
       },
       {
-        src: "https://cdn.vuetifyjs.com/images/carousel/sky.jpg",
+        src: "https://cdn.vuetifyjs.com/images/carousel/sky.jpg"
       },
       {
-        src: "https://cdn.vuetifyjs.com/images/carousel/bird.jpg",
+        src: "https://cdn.vuetifyjs.com/images/carousel/bird.jpg"
       },
       {
-        src: "https://cdn.vuetifyjs.com/images/carousel/planet.jpg",
-      },
-    ],
+        src: "https://cdn.vuetifyjs.com/images/carousel/planet.jpg"
+      }
+    ]
   }),
   components: {
     Footer,
-    VueSlickCarousel,
+    VueSlickCarousel
   },
   computed: {
     computedDateFormatted() {
       return this.formatDate(this.date);
-    },
+    }
   },
 
   watch: {
     date() {
       this.dateFormatted = this.formatDate(this.date);
-    },
+    }
   },
   methods: {
     formatDate(date) {
@@ -260,8 +236,8 @@ export default {
 
       const [month, day, year] = date.split("/");
       return `${year}-${month.padStart(2, "0")}-${day.padStart(2, "0")}`;
-    },
-  },
+    }
+  }
 };
 </script>
 
@@ -277,7 +253,7 @@ export default {
 
 .input {
   border: 2px solid #000;
-  padding: 12px 28px 12px 16px;
+  padding: 12px 15px 12px 16px;
   width: 140px;
   margin: 0 0 15px 0;
   font-size: 14px;
