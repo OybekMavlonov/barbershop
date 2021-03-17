@@ -12,17 +12,9 @@
         </v-btn>
       </div>
       <v-list dense>
-        <v-list-item
-          v-for="item in items"
-          :key="item.title"
-          router
-          :to="item.link"
-          link
-        >
+        <v-list-item v-for="item in items" :key="item.title" router :to="item.link" link>
           <v-list-item-content>
-            <v-list-item-title class="nav-link">
-              {{ item.title }}
-            </v-list-item-title>
+            <v-list-item-title class="nav-link">{{ item.title }}</v-list-item-title>
           </v-list-item-content>
         </v-list-item>
       </v-list>
@@ -42,10 +34,7 @@
     <v-app-bar app color="#000" dark fixed>
       <v-container>
         <v-row>
-          <v-app-bar-nav-icon
-            @click.stop="drawer = !drawer"
-            class="hidden-sm-and-up"
-          ></v-app-bar-nav-icon>
+          <v-app-bar-nav-icon @click.stop="drawer = !drawer" class="hidden-sm-and-up"></v-app-bar-nav-icon>
           <v-btn
             text
             v-for="item in items"
@@ -112,8 +101,8 @@ export default {
       { title: "НОВОСТИ", link: "/news" },
       { title: "ПРАЙС-ЛИСТ", link: "/price" },
       { title: "МАГАЗИН", link: "/market" },
-      { title: "КОНТАКТЫ", link: "/contacts" },
-    ],
+      { title: "КОНТАКТЫ", link: "/contacts" }
+    ]
   }),
   methods: {
     signin() {
@@ -121,8 +110,8 @@ export default {
     },
     close() {
       this.isActive = !this.isActive;
-    },
-  },
+    }
+  }
 };
 </script>
 
@@ -158,14 +147,26 @@ export default {
   @media (max-width: 780px) {
     padding: 30px 40px;
     width: 60%;
+    max-height: 330px;
   }
   @include for-phone-only {
-    width: 50%;
+    padding: 25px 34px;
+    margin-top: 90px;
+    // width: 50%;
   }
   @media (max-width: 560px) {
-    padding: 30px 40px;
-    width: 80%;
+    margin-top: 70px;
+    // padding: 25px 34px;
+    width: 76%;
+    max-height: 310px;
   }
+  @media (max-width: 360px) {
+    margin-top: 60px;
+    padding: 15px 20px;
+    width: 70%;
+    max-height: 310px;
+  }
+  
 
   h1 {
     margin-bottom: 26px;
@@ -174,6 +175,10 @@ export default {
       font-size: 24px;
       margin-bottom: 10px;
     }
+    @media (max-width: 300px) {
+    font-size: 18px;
+    margin-bottom: 5px;
+  }
   }
 
   .v-form {
@@ -189,6 +194,10 @@ export default {
         display: flex !important;
         text-align: unset;
       }
+      @media (max-width: 380px) {
+        display: block !important;
+        text-align: center;
+      }
     }
     .form-item {
       position: relative;
@@ -196,29 +205,41 @@ export default {
         color: #000;
         width: 100%;
         @media (max-width: 780px) {
-          padding: 8px 10px;
+          padding: 8px 28px 8px 8px;
           font-size: 12px;
+        }
+        @media (max-width: 380px) {
+          padding: 4px 22px 4px 4px;
         }
         &::-webkit-input-placeholder {
           color: #000;
+          @media (max-width: 780px) {
+            font-size: 12px;
+          }
         }
 
         &:-ms-input-placeholder {
           color: #000;
+          @media (max-width: 780px) {
+            font-size: 12px;
+          }
         }
 
         &::placeholder {
           color: #000;
+          @media (max-width: 780px) {
+            font-size: 12px;
+          }
         }
       }
       img {
         position: absolute;
         right: 4%;
         top: 40%;
-        
+
         @media (max-width: 560px) {
-      top: 25%;
-    }
+          top: 25%;
+        }
       }
     }
     .rememberMe {
@@ -264,8 +285,20 @@ export default {
           left: 50px;
         }
         @media (max-width: 560px) {
-      left: 0;
-    }
+          left: 0;
+        }
+        @media (max-width: 380px) {
+          left: 54px;
+        }
+        @media (max-width: 360px) {
+          left: 44px;
+        }
+        @media (max-width: 324px) {
+          left: 34px;
+        }
+        @media (max-width: 300px) {
+          left: 26px;
+        }
       }
     }
     .checkmark:after {
@@ -362,8 +395,8 @@ input {
   width: 32px;
   height: 32px;
   @media (max-width: 560px) {
-      right: -30px;
-    }
+    right: -30px;
+  }
 
   &:after,
   &:before {
@@ -377,7 +410,6 @@ input {
     @include for-phone-only {
       height: 24px;
     }
-    
   }
 
   &:before {

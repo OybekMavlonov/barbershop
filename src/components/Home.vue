@@ -277,7 +277,7 @@ export default {
 
 .input {
   border: 2px solid #000;
-  padding: 12px 11px 12px 16px;
+  padding: 12px 28px 12px 16px;
   width: 140px;
   margin: 0 0 15px 0;
   font-size: 14px;

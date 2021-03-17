@@ -243,4 +243,8 @@
   color: rgb(0, 0, 0);
   line-height: 1.714;
   text-transform: uppercase;
+  
+  @media (max-width: 780px) {
+    font-size: 12px;
+  }
 }

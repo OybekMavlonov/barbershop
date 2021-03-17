@@ -17,11 +17,7 @@
 
       <div class="categories">
         <h2>ГРУППЫ ТОВАРОВ:</h2>
-        <label
-          class="categories-item"
-          v-for="item in categories"
-          :key="item.id"
-        >
+        <label class="categories-item" v-for="item in categories" :key="item.id">
           {{ item.title }}
           <input
             type="radio"
@@ -50,20 +46,20 @@ export default {
       products: products,
       manufacturers: manufacturers,
       manufacturerArray: [],
-      categoryId: NaN,
+      categoryId: NaN
     };
   },
   computed: {
     isIncluded() {
-      return this.products.filter((product) => {
+      return this.products.filter(product => {
         return product.productId.includes(this.categoryId);
       });
     },
     showManufacturer() {
-      return this.isIncluded.filter((item) => {
+      return this.isIncluded.filter(item => {
         return this.manufacturerArray.includes(item.manufacturerId);
       });
-    },
+    }
   },
   methods: {
     ...mapActions(["getCategoryId", "sendManufacturersId"]),
@@ -73,8 +69,8 @@ export default {
     // }
     selected() {
       this.$store.commit("selected", this.showManufacturer);
-    },
-  },
+    }
+  }
 };
 </script>
 
@@ -173,6 +169,9 @@ export default {
       top: -8px;
       left: 0px;
     }
+    @media (max-width: 320px) {
+      top: -9px;
+    }
   }
 }
 
@@ -263,6 +262,9 @@ export default {
     @include for-phone-only {
       top: 2px;
       left: 2px;
+    }
+    @media (max-width: 320px) {
+      left: 3px;
     }
   }
 }
