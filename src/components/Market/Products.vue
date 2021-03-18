@@ -93,11 +93,19 @@ export default {
 </script>
 
 <style lang="scss">
+@import "../../mixins.scss";
+
 .pagination {
   list-style-type: none;
   padding: 0 !important;
   display: flex;
   margin-top: 20px;
+  @include for-phone-only {
+    margin-bottom: 18px;
+  }
+  @media (max-width: 360px) {
+    margin: 10px 0;
+  }
   li {
     margin: 0 3px;
 
@@ -109,6 +117,9 @@ export default {
       border: 1px solid #000;
       font-size: 14px;
       font-family: "PTSansNarrowBold", serif;
+      @media (max-width: 360px) {
+        padding: 8px 12px;
+      }
     }
   }
   .active {

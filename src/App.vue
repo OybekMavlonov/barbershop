@@ -152,16 +152,13 @@ export default {
   @include for-phone-only {
     padding: 25px 34px;
     margin-top: 90px;
-    // width: 50%;
   }
   @media (max-width: 560px) {
     margin-top: 70px;
-    // padding: 25px 34px;
     width: 76%;
     max-height: 310px;
   }
   @media (max-width: 360px) {
-    margin-top: 60px;
     padding: 15px 20px;
     width: 70%;
     max-height: 310px;
