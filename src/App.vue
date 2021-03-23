@@ -12,9 +12,17 @@
         </v-btn>
       </div>
       <v-list dense>
-        <v-list-item v-for="item in items" :key="item.title" router :to="item.link" link>
+        <v-list-item
+          v-for="item in items"
+          :key="item.title"
+          router
+          :to="item.link"
+          link
+        >
           <v-list-item-content>
-            <v-list-item-title class="nav-link">{{ item.title }}</v-list-item-title>
+            <v-list-item-title class="nav-link">{{
+              item.title
+            }}</v-list-item-title>
           </v-list-item-content>
         </v-list-item>
       </v-list>
@@ -34,7 +42,10 @@
     <v-app-bar app color="#000" dark fixed>
       <v-container>
         <v-row>
-          <v-app-bar-nav-icon @click.stop="drawer = !drawer" class="hidden-sm-and-up"></v-app-bar-nav-icon>
+          <v-app-bar-nav-icon
+            @click.stop="drawer = !drawer"
+            class="hidden-sm-and-up"
+          ></v-app-bar-nav-icon>
           <v-btn
             text
             v-for="item in items"
@@ -46,7 +57,7 @@
             <span class="mr-2 nav-link">{{ item.title }}</span>
           </v-btn>
           <v-spacer></v-spacer>
-          <v-btn text @click="signin()">
+          <v-btn text @click="signin()" class="enter">
             <v-img src="../src/assets/svg/login.svg" class="mr-2"></v-img>
             <span class="mr-2">ВХОД</span>
           </v-btn>
@@ -64,13 +75,27 @@
           <div class="close" @click="close()"></div>
           <h1>ЛИЧНЫЙ КАБИНЕТ</h1>
           <p class="text">ВВедите пожалуйста свой логин и пароль</p>
-          <v-form>
+          <v-form @submit.prevent="onSubmit">
             <div class="form-item">
-              <input class="input" placeholder="ЛОГИН" type="email" name />
+              <input
+                class="input"
+                placeholder="ЛОГИН"
+                type="email"
+                id="email"
+                v-model="email"
+                name
+              />
               <img src="./assets/login.png" alt />
             </div>
             <div class="form-item">
-              <input class="input" placeholder="ПАРОЛЬ" type="password" name />
+              <input
+                class="input"
+                placeholder="ПАРОЛЬ"
+                id="password"
+                type="password"
+                v-model="password"
+                name
+              />
               <img src="./assets/password.png" alt />
             </div>
             <div class="d-flex justify-space-between align-center">
@@ -81,8 +106,15 @@
               </label>
               <a href="#" class="forget">Я ЗАБЫЛ ПАРОЛЬ!</a>
             </div>
+            <div class="buttons d-flex justify-space-between">
+              <router-link to="/signup">
+                <button class="enter-btn register-btn" @click="close()">
+                  Register
+                </button>
+              </router-link>
 
-            <button class="enter-btn">ВОЙТИ</button>
+              <button type="submit" class="enter-btn">ВОЙТИ</button>
+            </div>
           </v-form>
         </div>
       </div>
@@ -91,6 +123,8 @@
 </template>
 
 <script>
+// import router from "./router";
+
 export default {
   name: "App",
   data: () => ({
@@ -101,17 +135,40 @@ export default {
       { title: "НОВОСТИ", link: "/news" },
       { title: "ПРАЙС-ЛИСТ", link: "/price" },
       { title: "МАГАЗИН", link: "/market" },
-      { title: "КОНТАКТЫ", link: "/contacts" }
-    ]
+      { title: "КОНТАКТЫ", link: "/dashboard" },
+    ],
+    email: "",
+    password: "",
   }),
+  computed: {
+    auth() {
+      return this.$store.getters.isAuthenticated;
+    },
+  },
   methods: {
     signin() {
       this.isActive = !this.isActive;
     },
     close() {
       this.isActive = !this.isActive;
-    }
-  }
+    },
+    // onLogout() {
+    //   this.$store.dispatch('logout')
+    // },
+    onSubmit() {
+      const formData = {
+        email: this.email,
+        password: this.password,
+      };
+      console.log(formData);
+      this.$store.dispatch("login", {
+        email: formData.email,
+        password: formData.password,
+      });
+      this.$router.push("/dashboard");
+      this.isActive = !this.isActive;
+    },
+  },
 };
 </script>
 
@@ -137,12 +194,13 @@ export default {
 }
 
 .modal-contents {
-  width: 460px;
-  max-height: 430px;
-  margin-top: 120px;
+  width: 400px;
+  max-height: 406px;
+  margin-top: 40px;
   background-color: #f7f4f1;
-  padding: 55px 80px;
-  position: relative;
+  padding: 40px 50px;
+  position: fixed;
+  top: 70px;
 
   @media (max-width: 780px) {
     padding: 30px 40px;
@@ -155,7 +213,7 @@ export default {
   }
   @media (max-width: 560px) {
     margin-top: 70px;
-    width: 76%;
+    width: 77%;
     max-height: 310px;
   }
   @media (max-width: 360px) {
@@ -166,6 +224,7 @@ export default {
 
   h1 {
     margin-bottom: 26px;
+    text-transform: uppercase;
     @extend .title;
     @media (max-width: 780px) {
       font-size: 24px;
@@ -359,8 +418,8 @@ export default {
   }
 
   .enter-btn {
-    padding: 12px;
-    width: 100%;
+    padding: 12px 40px;
+    // width: 100%;
     margin-top: 20px;
     @extend .general-btn;
     @media (max-width: 780px) {
@@ -371,6 +430,14 @@ export default {
     @include for-phone-only {
       padding: 5px 15px;
       margin-top: 10px;
+    }
+    @media (max-width: 380px) {
+      float: right;
+    }
+  }
+  .register-btn {
+    @media (max-width: 380px) {
+      float: left;
     }
   }
 }

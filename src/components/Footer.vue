@@ -28,7 +28,7 @@
           <v-spacer></v-spacer>
           <div class="madeBy">
             <div>РАЗРАБОТАНО:</div>
-            <div class="html-academy general-btn">HTML ACADEMY</div>
+            <div class="html-academy general-btn">OYBEK</div>
           </div>
         </v-col>
       </v-row>
