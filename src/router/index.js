@@ -1,5 +1,6 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
+import firebase from "firebase";
 
 // import store from "../store/store";
 
@@ -18,18 +19,21 @@ const routes = [
     name: "Home",
     component: Home,
   },
-  { path: "/signup", name: "signup", component: SignupPage },
+  {
+    path: "/signup",
+    name: "signup",
+    component: SignupPage,
+    meta: {
+      requiresGuest: true,
+    },
+  },
   {
     path: "/dashboard",
     name: "dashboard",
     component: Dashboard,
-    // beforeEnter(to, from, next) {
-    //   if (store.state.idToken) {
-    //     next();
-    //   } else {
-    //     next("/signup");
-    //   }
-    // },
+    meta: {
+      // requiresAuth: true,
+    },
   },
 
   {
@@ -49,10 +53,49 @@ const routes = [
   },
 ];
 
+
 const router = new VueRouter({
   mode: "history",
   base: process.env.BASE_URL,
   routes,
 });
+
+// Nav Guard
+router.beforeEach((to, from, next) => {
+  // Check for requiresAuth guard
+  if (to.matched.some((record) => record.meta.requiresAuth)) {
+    // Check if NO logged user
+    if (!firebase.auth().currentUser) {
+      // Go to login
+      next({
+        // path: "/signup",
+        query: {
+          // redirect: to.fullPath,
+        },
+      });
+    } else {
+      // Proceed to route
+      next();
+    }
+  } else if (to.matched.some((record) => record.meta.requiresGuest)) {
+    // Check if NO logged user
+    if (firebase.auth().currentUser) {
+      // Go to login
+      next({
+        path: "/dashboard",
+        query: {
+          redirect: to.fullPath,
+        },
+      });
+    } else {
+      // Proceed to route
+      next();
+    }
+  } else {
+    // Proceed to route
+    next();
+  }
+});
+
 
 export default router;

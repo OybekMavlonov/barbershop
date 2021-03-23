@@ -1,7 +1,7 @@
 <template>
   <div id="signup">
     <div class="signup-form">
-      <form @submit.prevent="onSubmit">
+      <form>
         <div class="input-box">
           <label for="email">Mail</label>
           <input type="email" id="email" v-model="email" />
@@ -32,66 +32,18 @@
           </select>
         </div>
         <div class="submit">
-          <button type="submit">Submit</button>
+          <button @click="register" type="submit">Submit</button>
         </div>
       </form>
     </div>
-
-    <transition name="slide" type="animation">
-      <div class="bg-modal" v-if="isActive" :class="{ open: isActive }">
-        <div class="modal-contents">
-          <div class="close" @click="close()"></div>
-          <h4>Последовательно зарегистрированы. Пожалуйста, войдите в свой ЛИЧНЫЙ КАБИНЕТ</h4>
-          <p class="text">ВВедите пожалуйста свой логин и пароль</p>
-          <v-form @submit.prevent="onSubmitSignin">
-            <div class="form-item">
-              <input
-                class="input"
-                placeholder="ЛОГИН"
-                type="email"
-                id="email"
-                v-model="signinEmail"
-                name
-              />
-              <img src="../../assets/login.png" alt />
-            </div>
-            <div class="form-item">
-              <input
-                class="input"
-                placeholder="ПАРОЛЬ"
-                id="password"
-                type="password"
-                v-model="signinPassword"
-                name
-              />
-              <img src="../../assets/password.png" alt />
-            </div>
-            <div class="d-flex justify-space-between align-center">
-              <label class="rememberMe">
-                ЗАПОМНИТЕ МЕНЯ
-                <input type="checkbox" />
-                <span class="checkmark"></span>
-              </label>
-              <a href="#" class="forget">Я ЗАБЫЛ ПАРОЛЬ!</a>
-            </div>
-            <div class="buttons d-flex justify-space-between">
-              <router-link to="/signup">
-                <button class="enter-btn" @click="close()">Register</button>
-              </router-link>
-
-              <button type="submit" class="enter-btn">ВОЙТИ</button>
-            </div>
-          </v-form>
-        </div>
-      </div>
-    </transition>
-    
     <Footer></Footer>
   </div>
 </template>
 
 <script>
-import Footer from '../Footer'
+import Footer from "../Footer";
+import firebase from "firebase";
+
 export default {
   data() {
     return {
@@ -101,43 +53,45 @@ export default {
       confirmPassword: "",
       country: "uzbekistan",
       isActive: false,
-      signinEmail: "",
-      signinPassword: ""
     };
   },
   components: {
-    Footer
+    Footer,
   },
   methods: {
-    onSubmit() {
-      const formData = {
-        email: this.email,
-        age: this.age,
-        password: this.password,
-        confirmPassword: this.confirmPassword,
-        country: this.country,
-      };
-      console.log(formData);
-      this.$store.dispatch("signup", formData);
-      // this.$router.push("/dashboard");
-      this.isActive = !this.isActive;
-    },
-    onSubmitSignin() {
-      const formData = {
-        email: this.email,
-        password: this.password,
-      };
-      console.log(formData);
-      this.$store.dispatch("login", {
-        email: formData.email,
-        password: formData.password,
-      });
-      this.$router.push("/dashboard");
-      this.isActive = !this.isActive;
-    },
     close() {
       this.isActive = !this.isActive;
     },
+    register: function(e) {
+      firebase
+        .auth()
+        .createUserWithEmailAndPassword(this.email, this.password)
+        .then(
+          (user) => {
+            console.log(user);
+            // alert(`Account Created for ${user.email}`);
+            // this.$router.go({ path: this.$router.path });
+            this.$router.push("/dashboard");
+            
+          },
+          (error) => {
+            if (error) {
+              alert(error.message);
+            } else {
+              this.isActive = !this.isActive;
+            }
+          }
+        );
+      // .catch((error) => {
+      //   if (error) {
+      //     alert(error.message);
+      //   } else {
+      //     this.isActive = !this.isActive;
+      //   }
+      // });
+
+      e.preventDefault();
+    }
   },
 };
 </script>

@@ -57,7 +57,7 @@
             <span class="mr-2 nav-link">{{ item.title }}</span>
           </v-btn>
           <v-spacer></v-spacer>
-          <v-btn text @click="signin()" class="enter">
+          <v-btn text @click="close()" class="enter">
             <v-img src="../src/assets/svg/login.svg" class="mr-2"></v-img>
             <span class="mr-2">ВХОД</span>
           </v-btn>
@@ -75,7 +75,7 @@
           <div class="close" @click="close()"></div>
           <h1>ЛИЧНЫЙ КАБИНЕТ</h1>
           <p class="text">ВВедите пожалуйста свой логин и пароль</p>
-          <v-form @submit.prevent="onSubmit">
+          <v-form>
             <div class="form-item">
               <input
                 class="input"
@@ -113,7 +113,9 @@
                 </button>
               </router-link>
 
-              <button type="submit" class="enter-btn">ВОЙТИ</button>
+              <button @click="login" type="submit" class="enter-btn">
+                ВОЙТИ
+              </button>
             </div>
           </v-form>
         </div>
@@ -124,6 +126,7 @@
 
 <script>
 // import router from "./router";
+import firebase from "firebase";
 
 export default {
   name: "App",
@@ -146,27 +149,27 @@ export default {
     },
   },
   methods: {
-    signin() {
-      this.isActive = !this.isActive;
-    },
     close() {
       this.isActive = !this.isActive;
     },
-    // onLogout() {
-    //   this.$store.dispatch('logout')
-    // },
-    onSubmit() {
-      const formData = {
-        email: this.email,
-        password: this.password,
-      };
-      console.log(formData);
-      this.$store.dispatch("login", {
-        email: formData.email,
-        password: formData.password,
-      });
-      this.$router.push("/dashboard");
+    login: function(e) {
+      firebase
+        .auth()
+        .signInWithEmailAndPassword(this.email, this.password)
+        .then(
+            this.$router.push("/dashboard"),
+          
+          // (user) => {
+          //   alert(`You are logged in as ${user.email}`);
+          //   this.$router.go({ path: this.$router.path });
+          // },
+          (err) => {
+            alert(err.message);
+          }
+        );
+      e.preventDefault();
       this.isActive = !this.isActive;
+      
     },
   },
 };
