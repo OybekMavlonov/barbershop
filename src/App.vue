@@ -138,7 +138,7 @@ export default {
       { title: "НОВОСТИ", link: "/news" },
       { title: "ПРАЙС-ЛИСТ", link: "/price" },
       { title: "МАГАЗИН", link: "/market" },
-      { title: "КОНТАКТЫ", link: "/dashboard" },
+      { title: "КОНТАКТЫ", link: "/contacts" },
     ],
     email: "",
     password: "",
